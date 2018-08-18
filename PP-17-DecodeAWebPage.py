@@ -10,7 +10,9 @@ def get_html_titles():
     r = requests.get(url)
     r_html = r.text
     soup = BeautifulSoup(r_html, features="html.parser")
-    for link in soup.find_all('h2', attrs={'class':'story-heading'}):
-        print(link.text.strip())
-
+    for link in soup.find_all(class_="story-heading"):
+        if link.a:
+            print(link.a.text.strip())
+        else:
+            print(link.contents.strip())
 get_html_titles()
