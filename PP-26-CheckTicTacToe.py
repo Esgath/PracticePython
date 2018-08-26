@@ -32,13 +32,13 @@ game6 = [[1, 2, 0],                #  no_winner
 
 def winner(game):
 	# Rows
-	for i in range(3):
+	for i in range(len(game)):
 		row = set(game[i])
 		if len(row) == 1 and game[i][0] != 0:
 			return "Player number {} wins".format(game[i][i])
 
 	# Columns
-	for i in range(3):
+	for i in range(len(game)):
 		column = set([game[0][i], game[1][i], game[2][i]])
 		if len(column) == 1 and game[0][i] != 0:
 			return "Player number {} wins".format(game[0][i])
